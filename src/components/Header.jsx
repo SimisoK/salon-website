@@ -1,75 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react"; // Icons for hamburger menu
 
-function Header() {
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="navbar container bg-[#efd7cd]">
-      <div className="flex-1">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+    <nav className="bg-[#efd7cd]text-white p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <a href="#" className="text-xl font-bold">
           NONHLE
-        </Link>
-      </div>
-      <div className="flex-none">
-        <div className="lg:hidden">
-          {" "}
-          {/* Mobile menu */}
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li className="bg-[#c79a96] text-white hover:bg-[#a87672]">
-                <Link to="/">About</Link>
-              </li>
-              <li className="bg-[#c79a96] text-white hover:bg-[#a87672]">
-                <Link to="/beauty-therapy">Beauty Therapy</Link>
-              </li>
-              <li className="bg-[#c79a96] text-white hover:bg-[#a87672]">
-                <Link to="/blog">My Blog</Link>
-              </li>
-              <li className="bg-[#c79a96] text-white hover:bg-[#a87672]">
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="hidden lg:flex">
-          {" "}
-          {/* Desktop menu */}
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link to="/">About</Link>
-            </li>
-            <li>
-              <Link to="/beauty-therapy">Beauty Therapy</Link>
-            </li>
-            <li>
-              <Link to="/blog">My Blog</Link>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
+        </a>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Menu Items */}
+        <div
+          className={`absolute top-16 left-0 w-full bg-[#ac7846] text-center py-4 md:static md:flex md:space-x-6 md:bg-transparent md:py-0 ${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
+          <li className="bg-[#c79a96] block py-2 md:inline text-white hover:bg-[#a87672]">
+            <Link to="/">About</Link>
+          </li>
+          <li className="bg-[#c79a96] block py-2 md:inline text-white hover:bg-[#a87672]">
+            <Link to="/beauty-therapy">Beauty Therapy</Link>
+          </li>
+          <li className="bg-[#c79a96] block py-2 md:inline text-white hover:bg-[#a87672]">
+            <Link to="/blog">My Blog</Link>
+          </li>
+          <li className="bg-[#c79a96] block py-2 md:inline text-white hover:bg-[#a87672]">
+            <a href="#contact">Contact</a>
+          </li>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
-
-export default Header;
