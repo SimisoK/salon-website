@@ -5,7 +5,7 @@ import aboutImage from '/img/b3.jpg';
 function About() {
   return (
     <section id="about" className="py-5 bg-[#d8c6b2]">
-      <div className="container mx-16">
+      <div className="container mx-16 text-center">
         <h2 className="text-3xl font-bold text-center mb-5">About Me</h2>
         <div className="flex flex-col md:flex-row items-center ml-16">
           <div className="md:w-1/4 ml-5">
