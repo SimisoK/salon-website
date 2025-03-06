@@ -2,7 +2,7 @@
   "name": "mysaloon",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/SimisoK/salon-website",
+  "homepage": "https://SimisoK.github.io/salon-website/",
   "type": "module",
   "scripts": {
     "dev": "vite",
