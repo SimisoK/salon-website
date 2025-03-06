@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="navbar bg-[#efd7cd]">
+    <div className="navbar container bg-[#efd7cd]">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           NONHLE
